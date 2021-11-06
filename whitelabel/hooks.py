@@ -8,7 +8,13 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "mrkevinbrown@outlook.com"
 app_license = "MIT"
-app_logo_url = '/assets/whitelabel/images/logo.png'
+app_logo_url = '/assets/whitelabel/images/infinicserp-logo.svg'
+
+website_context = {
+	"favicon": 	"/assets/whitelabel/images/favicon.png",
+	"splash_image": "/assets/whitelabel/images/infinicserp-logo.svg"
+}
+
 
 # Includes in <head>
 # ------------------
