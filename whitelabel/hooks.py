@@ -8,24 +8,18 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "mrkevinbrown@outlook.com"
 app_license = "MIT"
+app_logo_url = '/assets/whitelabel/images/logo.png'
 
 # Includes in <head>
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/whitelabel/css/whitelabel.css"
-# app_include_js = "/assets/whitelabel/js/whitelabel.js"
+app_include_css = "/assets/whitelabel/css/whitelabel_app.css"
+app_include_js = "/assets/whitelabel/js/whitelabel.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/whitelabel/css/whitelabel.css"
+web_include_css = "/assets/whitelabel/css/whitelabel_web.css"
 # web_include_js = "/assets/whitelabel/js/whitelabel.js"
-
-# include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "whitelabel/public/scss/website"
-
-# include js, css files in header of web form
-# webform_include_js = {"doctype": "public/js/doctype.js"}
-# webform_include_css = {"doctype": "public/css/doctype.css"}
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
@@ -46,6 +40,15 @@ app_license = "MIT"
 # role_home_page = {
 #	"Role": "home_page"
 # }
+
+# Website user home page (by function)
+# get_website_user_home_page = "whitelabel.utils.get_home_page"
+
+website_context = {
+	"favicon": "/assets/whitelabel/images/whitelabel_logo.jpg",
+	"splash_image": "/assets/whitelabel/images/whitelabel_logo.jpg"
+}
+after_migrate = ['whitelabel.api.whitelabel_patch']
 
 # Generators
 # ----------
@@ -75,14 +78,6 @@ app_license = "MIT"
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
-
-# DocType Class
-# ---------------
-# Override standard doctype classes
-
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
 # Document Events
@@ -118,6 +113,7 @@ app_license = "MIT"
 # 	]
 # }
 
+boot_session = "whitelabel.api.boot_session"
 # Testing
 # -------
 
@@ -137,39 +133,7 @@ app_license = "MIT"
 # 	"Task": "whitelabel.task.get_dashboard_data"
 # }
 
-# exempt linked doctypes from being automatically cancelled
-#
-# auto_cancel_exempted_doctypes = ["Auto Repeat"]
-
-
-# User Data Protection
-# --------------------
-
-user_data_fields = [
-	{
-		"doctype": "{doctype_1}",
-		"filter_by": "{filter_by}",
-		"redact_fields": ["{field_1}", "{field_2}"],
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_2}",
-		"filter_by": "{filter_by}",
-		"partial": 1,
-	},
-	{
-		"doctype": "{doctype_3}",
-		"strict": False,
-	},
-	{
-		"doctype": "{doctype_4}"
-	}
-]
-
-# Authentication and authorization
-# --------------------------------
-
-# auth_hooks = [
-# 	"whitelabel.auth.validate"
-# ]
+override_whitelisted_methods = {
+	"frappe.utils.change_log.show_update_popup": "whitelabel.api.ignore_update_popup"
+}
 
