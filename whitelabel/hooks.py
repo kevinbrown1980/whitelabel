@@ -10,12 +10,6 @@ app_email = "mrkevinbrown@outlook.com"
 app_license = "MIT"
 app_logo_url = '/assets/whitelabel/images/infinicserp-logo.svg'
 
-website_context = {
-	"favicon": 	"/assets/whitelabel/images/favicon.png",
-	"splash_image": "/assets/whitelabel/images/infinicserp-logo.svg"
-}
-
-
 # Includes in <head>
 # ------------------
 
@@ -51,8 +45,8 @@ web_include_css = "/assets/whitelabel/css/whitelabel_web.css"
 # get_website_user_home_page = "whitelabel.utils.get_home_page"
 
 website_context = {
-	"favicon": "/assets/whitelabel/images/whitelabel_logo.jpg",
-	"splash_image": "/assets/whitelabel/images/whitelabel_logo.jpg"
+	"favicon": 	"/assets/whitelabel/images/favicon.png",
+	"splash_image": "/assets/whitelabel/images/infinicserp-logo.svg"
 }
 after_migrate = ['whitelabel.api.whitelabel_patch']
 
@@ -142,4 +136,3 @@ boot_session = "whitelabel.api.boot_session"
 override_whitelisted_methods = {
 	"frappe.utils.change_log.show_update_popup": "whitelabel.api.ignore_update_popup"
 }
-
